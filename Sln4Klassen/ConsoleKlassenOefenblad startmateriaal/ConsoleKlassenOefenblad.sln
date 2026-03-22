@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleKlassenOefenblad", "ConsoleKlassenOefenblad.csproj", "{95A38F5F-3623-E823-4CE2-AFBD76DB0510}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFFD630B-8B91-4493-AA09-FA36F0AE4BB5}"
+	ProjectSection(SolutionItems) = preProject
+		..\ConsoleKaartspel\Program.cs = ..\ConsoleKaartspel\Program.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleKaartspel", "..\ConsoleKaartspel\ConsoleKaartspel.csproj", "{0AE50CFB-53E4-4357-8B8D-3977F7AAB16F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95A38F5F-3623-E823-4CE2-AFBD76DB0510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A38F5F-3623-E823-4CE2-AFBD76DB0510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A38F5F-3623-E823-4CE2-AFBD76DB0510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A38F5F-3623-E823-4CE2-AFBD76DB0510}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE50CFB-53E4-4357-8B8D-3977F7AAB16F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE50CFB-53E4-4357-8B8D-3977F7AAB16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE50CFB-53E4-4357-8B8D-3977F7AAB16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE50CFB-53E4-4357-8B8D-3977F7AAB16F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0AE50CFB-53E4-4357-8B8D-3977F7AAB16F} = {BFFD630B-8B91-4493-AA09-FA36F0AE4BB5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A57F7261-9E71-4E9A-AD09-3EB6646A5261}
+	EndGlobalSection
+EndGlobal
