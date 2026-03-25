@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleKlassenOefenblad.Exercises.Classes
 {
-    public class Werknemer
+    internal class Werknemer
     {
         public int Id { get; set; }
         public string Naam { get; set; }

@@ -52,7 +52,7 @@
         // ToString override
         public override string ToString()
         {
-            return $"{Gebruikersnaam} — {(IsPubliek ? "publiek" : "privé")}";
+            return $"{Gebruikersnaam} — {(IsPubliek ? "publiek" : "privé")}"; 
         }
     }
 }

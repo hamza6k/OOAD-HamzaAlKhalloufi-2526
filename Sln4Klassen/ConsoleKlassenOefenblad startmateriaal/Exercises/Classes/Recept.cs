@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleKlassenOefenblad.Exercises.Classes
 {
-    public class Recept
+    internal class Recept
     {
         public string Titel { get; set; }
         public int Rating { get; set;  }

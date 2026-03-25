@@ -11,7 +11,7 @@ namespace WpfPlaylist
         public string Naam { get; set; }
         public Artist Artiest { get; set; }  // compositie!
         public string Jaar { get; set; }
-        public string Duur { get; set; }
+        public TimeSpan Duur { get; set; }
         public string Mp3 { get; set; }
 
         public Song(string naam, Artist artiest, string jaar, string duur, string mp3)
