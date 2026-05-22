@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -44,13 +45,19 @@ namespace WPFDokter
             // Profielfoto tonen als er binaire data aanwezig is
             if (_ingelogdeDokter.Profielfotodata != null && _ingelogdeDokter.Profielfotodata.Length > 0)
             {
-                BitmapImage bitmap = new BitmapImage();
-                MemoryStream stream = new MemoryStream(_ingelogdeDokter.Profielfotodata);
-                bitmap.BeginInit();
-                bitmap.StreamSource = stream;
-                bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                bitmap.EndInit();
-                ImgProfielfoto.Source = bitmap;
+                try
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.StreamSource = new MemoryStream(_ingelogdeDokter.Profielfotodata);
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+                    ImgProfielfoto.Source = bitmap;
+                }
+                catch (Exception)
+                {
+                    ImgProfielfoto.Source = null;
+                }
             }
 
             PanelDokterInfo.Visibility = Visibility.Visible;

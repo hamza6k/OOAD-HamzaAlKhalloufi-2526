@@ -13,7 +13,10 @@
       "PowerShell(cmd /c \"dir C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\DokterspraktijkLib\")",
       "PowerShell(cmd /c \"dir C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\WPFDokter\")",
       "PowerShell(dotnet build \"C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\" --nologo -v minimal 2>&1)",
-      "PowerShell(dotnet build \"C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\WPFDokter\\\\WPFDokter.csproj\" --nologo -v minimal 2>&1)"
+      "PowerShell(dotnet build \"C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\WPFDokter\\\\WPFDokter.csproj\" --nologo -v minimal 2>&1)",
+      "PowerShell(dotnet build \"C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\WPFPatient\\\\WPFPatient.csproj\" --nologo -v minimal 2>&1)",
+      "PowerShell(dotnet build \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\WPFPatient\\\\WPFPatient.csproj\" 2>&1)",
+      "PowerShell(dotnet build \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\DokterspraktijkSolution.slnx\" 2>&1)"
     ]
   }
 }

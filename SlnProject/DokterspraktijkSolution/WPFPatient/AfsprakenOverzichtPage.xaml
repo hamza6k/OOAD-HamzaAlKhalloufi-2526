@@ -1,0 +1,78 @@
+<Page x:Class="WPFPatient.AfsprakenOverzichtPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Mijn Afspraken"
+      Loaded="Page_Loaded">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Mijn afspraken"
+                   FontSize="22" FontWeight="Bold" Foreground="#1A5276"
+                   Margin="0,0,0,16"/>
+
+        <ListBox Grid.Row="1" x:Name="LstAfspraken"
+                 SelectionChanged="LstAfspraken_SelectionChanged"
+                 FontSize="14" Padding="6"
+                 Margin="0,0,0,12"/>
+
+        <Border Grid.Row="2" x:Name="PanelKlacht"
+                Background="#EAF2FF" CornerRadius="6"
+                Padding="12" Margin="0,0,0,12"
+                Visibility="Collapsed">
+            <StackPanel>
+                <TextBlock Text="Klacht / opmerking:" FontWeight="SemiBold"
+                           Foreground="#1A5276" Margin="0,0,0,4"/>
+                <TextBlock x:Name="TxtKlacht" TextWrapping="Wrap"
+                           FontSize="13" Foreground="#2C3E50"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="3" x:Name="PanelBevestiging"
+                Background="#FEF9E7" BorderBrush="#F39C12" BorderThickness="1"
+                CornerRadius="6" Padding="12" Margin="0,0,0,12"
+                Visibility="Collapsed">
+            <StackPanel>
+                <TextBlock x:Name="TxtBevestigingVraag"
+                           TextWrapping="Wrap" FontSize="13"
+                           Foreground="#7D6608" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="BtnJa" Content="Ja, annuleer"
+                            Width="110" Height="32"
+                            Background="#C0392B" Foreground="White"
+                            BorderThickness="0" FontWeight="Bold"
+                            Click="BtnJa_Click" Margin="0,0,8,0"/>
+                    <Button x:Name="BtnNee" Content="Nee, terug"
+                            Width="90" Height="32"
+                            Background="#7F8C8D" Foreground="White"
+                            BorderThickness="0"
+                            Click="BtnNee_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button x:Name="BtnAnnuleren" Content="Annuleer afspraak"
+                    IsEnabled="False"
+                    Width="160" Height="36"
+                    Background="#C0392B" Foreground="White"
+                    BorderThickness="0" FontWeight="Bold"
+                    Click="BtnAnnuleren_Click" Margin="0,0,10,0"/>
+            <Button x:Name="BtnNieuweAfspraak" Content="+ Nieuwe afspraak"
+                    Width="160" Height="36"
+                    Background="#1A5276" Foreground="White"
+                    BorderThickness="0" FontWeight="Bold"
+                    Click="BtnNieuweAfspraak_Click"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="5" x:Name="TxtFout"
+                   Foreground="#C0392B" FontSize="13"
+                   TextWrapping="Wrap" Visibility="Collapsed"/>
+    </Grid>
+</Page>

@@ -1,10 +1,107 @@
 <Page x:Class="WPFDokter.PatientDetailsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Patiënt details">
-    <Grid>
-        <TextBlock Text="Patiënt details – wordt nog uitgewerkt"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="16" Foreground="Gray"/>
+      Title="Patiënt details"
+      Background="#F4F6F8">
+
+    <Grid Margin="24,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Terugknop -->
+        <Button x:Name="BtnTerug"
+                Grid.Row="0"
+                Content="← Terug naar overzicht"
+                Click="BtnTerug_Click"
+                HorizontalAlignment="Left"
+                Padding="14,8" Margin="0,0,0,16"
+                Background="#7F8C8D" Foreground="White"
+                FontSize="13" BorderThickness="0"/>
+
+        <!-- Detailkaart -->
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="8"
+                Padding="32">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.08" Color="Black"/>
+            </Border.Effect>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Profielfoto (links) -->
+                <Image x:Name="ImgFoto"
+                       Grid.Column="0"
+                       Width="120" Height="120"
+                       Stretch="UniformToFill"
+                       VerticalAlignment="Top"
+                       Margin="0,0,36,0">
+                    <Image.Clip>
+                        <EllipseGeometry Center="60,60" RadiusX="60" RadiusY="60"/>
+                    </Image.Clip>
+                </Image>
+
+                <!-- Patiëntgegevens (rechts) -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+
+                    <TextBlock x:Name="TxtNaam"
+                               FontSize="24" FontWeight="Bold"
+                               Foreground="#2C3E50"
+                               Margin="0,0,0,16"/>
+
+                    <!-- Rij: Geslacht -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Geslacht:"
+                                   Width="150" FontWeight="SemiBold"
+                                   Foreground="#555" FontSize="13"/>
+                        <TextBlock x:Name="TxtGeslacht"
+                                   FontSize="13" Foreground="#2C3E50"/>
+                    </StackPanel>
+
+                    <!-- Rij: GSM -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="GSM:"
+                                   Width="150" FontWeight="SemiBold"
+                                   Foreground="#555" FontSize="13"/>
+                        <TextBlock x:Name="TxtGsm"
+                                   FontSize="13" Foreground="#2C3E50"/>
+                    </StackPanel>
+
+                    <!-- Rij: E-mail -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="E-mailadres:"
+                                   Width="150" FontWeight="SemiBold"
+                                   Foreground="#555" FontSize="13"/>
+                        <TextBlock x:Name="TxtEmail"
+                                   FontSize="13" Foreground="#2C3E50"/>
+                    </StackPanel>
+
+                    <!-- Rij: Geboortedatum -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Geboortedatum:"
+                                   Width="150" FontWeight="SemiBold"
+                                   Foreground="#555" FontSize="13"/>
+                        <TextBlock x:Name="TxtGeboortedatum"
+                                   FontSize="13" Foreground="#2C3E50"/>
+                    </StackPanel>
+
+                    <!-- Rij: Notificaties -->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Notificaties:"
+                                   Width="150" FontWeight="SemiBold"
+                                   Foreground="#555" FontSize="13"/>
+                        <TextBlock x:Name="TxtNotificaties"
+                                   FontSize="13" Foreground="#2C3E50"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

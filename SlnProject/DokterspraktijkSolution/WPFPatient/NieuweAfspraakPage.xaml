@@ -1,0 +1,126 @@
+<Page x:Class="WPFPatient.NieuweAfspraakPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Nieuwe Afspraak"
+      Loaded="Page_Loaded">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Nieuwe afspraak"
+                       FontSize="22" FontWeight="Bold" Foreground="#1A5276"
+                       Margin="0,0,0,20"/>
+
+            <!-- Dokter selectie -->
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Kies een dokter:" FontWeight="SemiBold"
+                               Foreground="#1A5276" Margin="0,0,0,6"/>
+                    <ListBox x:Name="LstDokters" Height="200"
+                             SelectionChanged="LstDokters_SelectionChanged"
+                             FontSize="13" Padding="4"/>
+                </StackPanel>
+
+                <Border Grid.Column="1" x:Name="PanelDokterInfo"
+                        Background="#EAF2FF" CornerRadius="8"
+                        Padding="16" Margin="16,24,0,0"
+                        Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="80" Height="80" CornerRadius="40"
+                                Margin="0,0,16,0">
+                            <Border.Clip>
+                                <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40"/>
+                            </Border.Clip>
+                            <Image x:Name="ImgDokterFoto"
+                                   Width="80" Height="80"
+                                   Stretch="UniformToFill"/>
+                        </Border>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="TxtDokterNaam"
+                                       FontSize="15" FontWeight="Bold"
+                                       Foreground="#1A5276" Margin="0,0,0,4"/>
+                            <TextBlock x:Name="TxtRizivnummer"
+                                       FontSize="13" Foreground="#5D6D7E"
+                                       Margin="0,0,0,4"/>
+                            <TextBlock x:Name="TxtGeconventioneerd"
+                                       FontSize="13" Foreground="#5D6D7E"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Datum en tijdstip -->
+            <Grid Grid.Row="2" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0,0,24,0">
+                    <TextBlock Text="Kies een datum:" FontWeight="SemiBold"
+                               Foreground="#1A5276" Margin="0,0,0,6"/>
+                    <Calendar x:Name="CalendarDatum"
+                              SelectionMode="SingleDate"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                    <TextBlock Text="Kies een tijdstip:" FontWeight="SemiBold"
+                               Foreground="#1A5276" Margin="0,0,0,6"/>
+                    <ComboBox x:Name="CmbTijdslot"
+                              Width="140" Height="32"
+                              HorizontalAlignment="Left"
+                              FontSize="13"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Klacht -->
+            <StackPanel Grid.Row="3" Margin="0,0,0,20">
+                <TextBlock Text="Klacht / opmerking:" FontWeight="SemiBold"
+                           Foreground="#1A5276" Margin="0,0,0,6"/>
+                <TextBox x:Name="TxtKlacht"
+                         Height="80" TextWrapping="Wrap"
+                         AcceptsReturn="True" VerticalScrollBarVisibility="Auto"
+                         FontSize="13" Padding="6"
+                         MaxLength="500"/>
+            </StackPanel>
+
+            <!-- Validatie -->
+            <TextBlock Grid.Row="4" x:Name="TxtValidatie"
+                       Foreground="#E67E22" FontSize="13"
+                       TextWrapping="Wrap" Margin="0,0,0,8"/>
+
+            <!-- Fout -->
+            <TextBlock Grid.Row="5" x:Name="TxtFout"
+                       Foreground="#C0392B" FontSize="13"
+                       TextWrapping="Wrap" Visibility="Collapsed"
+                       Margin="0,0,0,8"/>
+
+            <!-- Knoppen -->
+            <StackPanel Grid.Row="6" Orientation="Horizontal">
+                <Button x:Name="BtnBevestigen" Content="Afspraak bevestigen"
+                        Width="180" Height="38"
+                        Background="#1A5276" Foreground="White"
+                        BorderThickness="0" FontWeight="Bold" FontSize="14"
+                        Click="BtnBevestigen_Click" Margin="0,0,12,0"/>
+                <Button x:Name="BtnAnnuleren" Content="Annuleren"
+                        Width="100" Height="38"
+                        Background="#7F8C8D" Foreground="White"
+                        BorderThickness="0"
+                        Click="BtnAnnuleren_Click"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

@@ -1,10 +1,214 @@
 <Page x:Class="WPFDokter.PatientWijzigenPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Patiënt wijzigen">
-    <Grid>
-        <TextBlock Text="Patiënt wijzigen – wordt nog uitgewerkt"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="16" Foreground="Gray"/>
-    </Grid>
+      Title="Patiënt wijzigen"
+      Background="#F4F6F8">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="24,20" MaxWidth="620" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Paginatitel -->
+            <TextBlock x:Name="TxtTitel"
+                       Grid.Row="0"
+                       FontSize="22" FontWeight="Bold"
+                       Foreground="#2C3E50"
+                       Margin="0,0,0,20"/>
+
+            <!-- Formulierkaart -->
+            <Border Grid.Row="1"
+                    Background="White"
+                    CornerRadius="8"
+                    Padding="32,28">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.08" Color="Black"/>
+                </Border.Effect>
+
+                <StackPanel>
+
+                    <!-- Formuliervelden in 2-koloms grid (label | input) -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Voornaam -->
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                   Text="Voornaam *"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <TextBox x:Name="TxtVoornaam"
+                                 Grid.Row="0" Grid.Column="1"
+                                 FontSize="13" Padding="10,7"
+                                 BorderBrush="#CCC" BorderThickness="1"
+                                 Margin="0,0,0,12"/>
+
+                        <!-- Achternaam -->
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                                   Text="Achternaam *"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <TextBox x:Name="TxtAchternaam"
+                                 Grid.Row="1" Grid.Column="1"
+                                 FontSize="13" Padding="10,7"
+                                 BorderBrush="#CCC" BorderThickness="1"
+                                 Margin="0,0,0,12"/>
+
+                        <!-- Geslacht -->
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                                   Text="Geslacht *"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <TextBox x:Name="TxtGeslacht"
+                                 Grid.Row="2" Grid.Column="1"
+                                 FontSize="13" Padding="10,7"
+                                 BorderBrush="#CCC" BorderThickness="1"
+                                 Margin="0,0,0,12"/>
+
+                        <!-- GSM -->
+                        <TextBlock Grid.Row="3" Grid.Column="0"
+                                   Text="GSM *"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <TextBox x:Name="TxtGsm"
+                                 Grid.Row="3" Grid.Column="1"
+                                 FontSize="13" Padding="10,7"
+                                 BorderBrush="#CCC" BorderThickness="1"
+                                 Margin="0,0,0,12"/>
+
+                        <!-- E-mailadres -->
+                        <TextBlock Grid.Row="4" Grid.Column="0"
+                                   Text="E-mailadres *"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <TextBox x:Name="TxtEmail"
+                                 Grid.Row="4" Grid.Column="1"
+                                 FontSize="13" Padding="10,7"
+                                 BorderBrush="#CCC" BorderThickness="1"
+                                 Margin="0,0,0,12"/>
+
+                        <!-- Wachtwoord (verplicht bij nieuw dossier, optioneel bij wijzigen) -->
+                        <TextBlock x:Name="LblWachtwoord"
+                                   Grid.Row="5" Grid.Column="0"
+                                   Text="Wachtwoord *"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <StackPanel Grid.Row="5" Grid.Column="1" Margin="0,0,0,12">
+                            <PasswordBox x:Name="PbxWachtwoord"
+                                         FontSize="13" Padding="10,7"
+                                         BorderBrush="#CCC" BorderThickness="1"/>
+                            <TextBlock x:Name="TxtWachtwoordHint"
+                                       Text="Laat leeg om huidig wachtwoord te behouden."
+                                       FontSize="11" Foreground="#888"
+                                       Visibility="Collapsed"
+                                       Margin="0,3,0,0"/>
+                        </StackPanel>
+
+                        <!-- Geboortedatum -->
+                        <TextBlock Grid.Row="6" Grid.Column="0"
+                                   Text="Geboortedatum *"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <DatePicker x:Name="DpGeboortedatum"
+                                    Grid.Row="6" Grid.Column="1"
+                                    FontSize="13"
+                                    BorderBrush="#CCC" BorderThickness="1"
+                                    Margin="0,0,0,12"/>
+
+                        <!-- Notificaties -->
+                        <TextBlock Grid.Row="7" Grid.Column="0"
+                                   Text="Notificaties"
+                                   VerticalAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,0,0,12"/>
+                        <ComboBox x:Name="CmbNotificaties"
+                                  Grid.Row="7" Grid.Column="1"
+                                  FontSize="13"
+                                  BorderBrush="#CCC" BorderThickness="1"
+                                  SelectedIndex="0"
+                                  Margin="0,0,0,12">
+                            <ComboBoxItem Content="Geen"/>
+                            <ComboBoxItem Content="Mail"/>
+                            <ComboBoxItem Content="Sms"/>
+                            <ComboBoxItem Content="Beide"/>
+                        </ComboBox>
+
+                        <!-- Profielfoto -->
+                        <TextBlock Grid.Row="8" Grid.Column="0"
+                                   Text="Profielfoto"
+                                   VerticalAlignment="Top"
+                                   FontWeight="SemiBold" FontSize="13"
+                                   Foreground="#555" Margin="0,4,0,0"/>
+                        <StackPanel Grid.Row="8" Grid.Column="1">
+                            <Image x:Name="ImgFotoPreview"
+                                   Width="80" Height="80"
+                                   HorizontalAlignment="Left"
+                                   Stretch="UniformToFill"
+                                   Margin="0,0,0,6">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40"/>
+                                </Image.Clip>
+                            </Image>
+                            <Button x:Name="BtnFotoUploaden"
+                                    Content="Foto uploaden…"
+                                    Click="BtnFotoUploaden_Click"
+                                    HorizontalAlignment="Left"
+                                    Padding="12,6" FontSize="12"
+                                    Background="#ECF0F1" Foreground="#2C3E50"
+                                    BorderBrush="#BDC3C7" BorderThickness="1"/>
+                        </StackPanel>
+
+                    </Grid>
+
+                    <!-- Validatiefouten -->
+                    <TextBlock x:Name="TxtValidatie"
+                               Foreground="#C0392B"
+                               FontSize="12"
+                               TextWrapping="Wrap"
+                               Margin="0,12,0,0"/>
+
+                    <!-- Actieknoppen -->
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                        <Button x:Name="BtnOpslaan"
+                                Content="Opslaan"
+                                Click="BtnOpslaan_Click"
+                                Height="38" Padding="22,0"
+                                Background="#27AE60" Foreground="White"
+                                FontSize="13" FontWeight="SemiBold"
+                                BorderThickness="0" Margin="0,0,10,0"/>
+                        <Button x:Name="BtnAnnuleren"
+                                Content="Annuleren"
+                                Click="BtnAnnuleren_Click"
+                                Height="38" Padding="22,0"
+                                Background="#95A5A6" Foreground="White"
+                                FontSize="13" FontWeight="SemiBold"
+                                BorderThickness="0"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Page>

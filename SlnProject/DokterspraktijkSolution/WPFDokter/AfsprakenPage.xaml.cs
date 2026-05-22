@@ -43,13 +43,19 @@ namespace WPFDokter
             if (MainWindow.IngelogdeDokter.Profielfotodata == null) return;
             if (MainWindow.IngelogdeDokter.Profielfotodata.Length == 0) return;
 
-            BitmapImage bitmap = new BitmapImage();
-            MemoryStream stream = new MemoryStream(MainWindow.IngelogdeDokter.Profielfotodata);
-            bitmap.BeginInit();
-            bitmap.StreamSource = stream;
-            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-            bitmap.EndInit();
-            ImgProfielfoto.Source = bitmap;
+            try
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.StreamSource = new MemoryStream(MainWindow.IngelogdeDokter.Profielfotodata);
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
+                ImgProfielfoto.Source = bitmap;
+            }
+            catch (Exception)
+            {
+                ImgProfielfoto.Source = null;
+            }
         }
 
         /// <summary>
