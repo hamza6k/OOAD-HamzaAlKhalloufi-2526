@@ -4,7 +4,8 @@
       "PowerShell(dotnet new sln -n DokterspraktijkSolution -o DokterspraktijkSolution)",
       "PowerShell(dotnet new classlib -n DokterspraktijkLib -f net10.0 -o DokterspraktijkSolution/DokterspraktijkLib)",
       "PowerShell(cmd /c \"dir /a /s C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\DokterspraktijkSolution\")",
-      "PowerShell(dotnet build \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\DokterspraktijkSolution\\\\DokterspraktijkSolution.slnx\" --nologo -v minimal 2>&1)"
+      "PowerShell(dotnet build \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\DokterspraktijkSolution\\\\DokterspraktijkSolution.slnx\" --nologo -v minimal 2>&1)",
+      "PowerShell(cmd /c \"dir C:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\DokterspraktijkSolution\")"
     ]
   }
 }
