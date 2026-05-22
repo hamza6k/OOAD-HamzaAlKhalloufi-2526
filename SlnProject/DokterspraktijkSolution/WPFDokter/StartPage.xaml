@@ -1,0 +1,84 @@
+<Page x:Class="WPFDokter.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Start">
+
+    <Grid Background="#F4F6F8">
+
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="480">
+
+            <!-- Titel -->
+            <TextBlock Text="Welkom bij Dokterspraktijk"
+                       FontSize="28" FontWeight="Bold"
+                       Foreground="#2C3E50"
+                       TextAlignment="Center"
+                       Margin="0,0,0,12"/>
+
+            <!-- Subtitel -->
+            <TextBlock Text="Portaal voor zorgverleners"
+                       FontSize="15" Foreground="#7F8C8D"
+                       TextAlignment="Center"
+                       Margin="0,0,0,32"/>
+
+            <!-- Uitleg voor de dokter -->
+            <Border Background="White"
+                    CornerRadius="8"
+                    Padding="28,24"
+                    Margin="0,0,0,32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2"
+                                      Opacity="0.08" Color="Black"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="Wat kunt u hier doen?"
+                               FontSize="14" FontWeight="SemiBold"
+                               Foreground="#34495E"
+                               Margin="0,0,0,12"/>
+                    <TextBlock TextWrapping="Wrap" LineHeight="22"
+                               Foreground="#555" FontSize="13">
+                        <Run>&#x2022;  </Run><Run FontWeight="SemiBold">Afspraken beheren</Run>
+                        <Run> – bekijk uw dagagenda en raadpleeg klachten per afspraak.</Run>
+                        <LineBreak/>
+                        <LineBreak/>
+                        <Run>&#x2022;  </Run><Run FontWeight="SemiBold">Patiënten opvolgen</Run>
+                        <Run> – zoek patiënten op naam, bekijk hun dossier en pas gegevens aan.</Run>
+                        <LineBreak/>
+                        <LineBreak/>
+                        <Run>&#x2022;  </Run><Run FontWeight="SemiBold">Veilig inloggen</Run>
+                        <Run> – uw account is beveiligd met een geëncrypteerd wachtwoord (SHA-256).</Run>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <!-- Knop naar login -->
+            <Button x:Name="BtnNaarLogin"
+                    Content="Inloggen"
+                    Click="BtnNaarLogin_Click"
+                    Width="180" Height="42"
+                    Background="#2980B9" Foreground="White"
+                    FontSize="14" FontWeight="SemiBold"
+                    BorderThickness="0"
+                    HorizontalAlignment="Center">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                            CornerRadius="6"
+                                            Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</Page>

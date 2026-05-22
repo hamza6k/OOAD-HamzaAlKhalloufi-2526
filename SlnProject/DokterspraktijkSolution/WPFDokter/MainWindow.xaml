@@ -1,12 +1,102 @@
-﻿<Window x:Class="WPFDokter.MainWindow"
+<Window x:Class="WPFDokter.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFDokter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Dokterspraktijk – Dokter" Height="620" Width="960"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- Vaste breedte voor het navigatiepaneel -->
+            <ColumnDefinition Width="180"/>
+            <!-- Resterende ruimte voor inhoud -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- ===== Links: navigatiepaneel ===== -->
+        <StackPanel Grid.Column="0" Background="#2C3E50">
+
+            <TextBlock Text="Dokterspraktijk"
+                       Foreground="White" FontWeight="Bold" FontSize="14"
+                       TextAlignment="Center" Margin="0,20,0,20"/>
+
+            <Button x:Name="BtnStart"
+                    Content="Start"
+                    Click="BtnStart_Click"
+                    Margin="10,4" Padding="10,8"
+                    Background="#3D5166" Foreground="White"
+                    BorderThickness="0" FontSize="13"
+                    HorizontalContentAlignment="Left"/>
+
+            <Button x:Name="BtnAfspraken"
+                    Content="Afspraken"
+                    Click="BtnAfspraken_Click"
+                    IsEnabled="False"
+                    Margin="10,4" Padding="10,8"
+                    Background="#3D5166" Foreground="White"
+                    BorderThickness="0" FontSize="13"
+                    HorizontalContentAlignment="Left"/>
+
+            <Button x:Name="BtnPatienten"
+                    Content="Patiënten"
+                    Click="BtnPatienten_Click"
+                    IsEnabled="False"
+                    Margin="10,4" Padding="10,8"
+                    Background="#3D5166" Foreground="White"
+                    BorderThickness="0" FontSize="13"
+                    HorizontalContentAlignment="Left"/>
+
+            <Button x:Name="BtnUitloggen"
+                    Content="Uitloggen"
+                    Click="BtnUitloggen_Click"
+                    IsEnabled="False"
+                    Margin="10,20,10,4" Padding="10,8"
+                    Background="#C0392B" Foreground="White"
+                    BorderThickness="0" FontSize="13"
+                    HorizontalContentAlignment="Left"/>
+        </StackPanel>
+
+        <!-- ===== Rechts: profielbalk + frame ===== -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <!-- Profielbalk bovenaan, hoogte pas na inhoud -->
+                <RowDefinition Height="Auto"/>
+                <!-- Frame vult de rest op -->
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Rechtsboven: ingelogde dokter – standaard verborgen -->
+            <StackPanel x:Name="PanelDokterInfo"
+                        Grid.Row="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Visibility="Collapsed"
+                        Background="#ECF0F1"
+                        Margin="0,0,0,0">
+
+                <TextBlock x:Name="TxtDokterNaam"
+                           VerticalAlignment="Center"
+                           FontWeight="SemiBold" FontSize="13"
+                           Margin="12,8"/>
+
+                <!-- Profielfoto afgerond via EllipseGeometry clip -->
+                <Border Width="50" Height="50" Margin="0,6,12,6"
+                        CornerRadius="25">
+                    <Image x:Name="ImgProfielfoto"
+                           Width="50" Height="50"
+                           Stretch="UniformToFill">
+                        <Image.Clip>
+                            <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25"/>
+                        </Image.Clip>
+                    </Image>
+                </Border>
+            </StackPanel>
+
+            <!-- Hoofdinhoud: pagina's worden hier ingeladen -->
+            <Frame x:Name="MainFrame"
+                   Grid.Row="1"
+                   NavigationUIVisibility="Hidden"/>
+        </Grid>
     </Grid>
 </Window>
