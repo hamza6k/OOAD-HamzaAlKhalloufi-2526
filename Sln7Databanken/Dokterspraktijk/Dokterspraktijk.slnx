@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DokterspraktijkLib/DokterspraktijkLib.csproj" />
+  <Project Path="WPFDokter/WPFDokter.csproj" />
+  <Project Path="WPFPatient/WPFPatient.csproj" />
+</Solution>
