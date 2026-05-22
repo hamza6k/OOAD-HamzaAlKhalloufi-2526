@@ -1,11 +1,199 @@
 <Page x:Class="WPFDokter.AfsprakenPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Afspraken">
-    <Grid>
-        <TextBlock Text="Afsprakenpagina"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="16" Foreground="Gray"/>
+      Title="Afspraken"
+      Background="#F4F6F8">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <!-- Links: kalender -->
+            <ColumnDefinition Width="Auto"/>
+            <!-- Rechts: lijst, detail, acties -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ===== LINKS: Kalender ===== -->
+        <StackPanel Grid.Column="0" Margin="0,0,20,0">
+
+            <TextBlock Text="Selecteer een datum"
+                       FontSize="13" FontWeight="SemiBold"
+                       Foreground="#2C3E50" Margin="0,0,0,8"/>
+
+            <Calendar x:Name="CalendarDatum"
+                      SelectionMode="SingleDate"
+                      SelectedDatesChanged="CalendarDatum_SelectedDatesChanged"/>
+        </StackPanel>
+
+        <!-- ===== RECHTS: detail, profielfoto, lijst ===== -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <!-- Profielfoto rechtsboven -->
+                <RowDefinition Height="Auto"/>
+                <!-- Titel + ListBox -->
+                <RowDefinition Height="*"/>
+                <!-- Klacht -->
+                <RowDefinition Height="Auto"/>
+                <!-- Knop Annuleren -->
+                <RowDefinition Height="Auto"/>
+                <!-- Bevestigingspaneel (verborgen) -->
+                <RowDefinition Height="Auto"/>
+                <!-- Foutmelding -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Profielfoto rechtsboven -->
+            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,0,12">
+                <Image x:Name="ImgProfielfoto"
+                       Width="50" Height="50"
+                       Stretch="UniformToFill">
+                    <Image.Clip>
+                        <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25"/>
+                    </Image.Clip>
+                </Image>
+            </StackPanel>
+
+            <!-- Lijst van afspraken -->
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Afspraken op geselecteerde datum"
+                           FontSize="13" FontWeight="SemiBold"
+                           Foreground="#2C3E50" Margin="0,0,0,6"/>
+
+                <ListBox x:Name="LstAfspraken"
+                         Height="200"
+                         SelectionMode="Single"
+                         SelectionChanged="LstAfspraken_SelectionChanged"
+                         FontSize="13"
+                         BorderBrush="#CCC" BorderThickness="1"/>
+            </StackPanel>
+
+            <!-- Klacht van de geselecteerde afspraak -->
+            <Border Grid.Row="2"
+                    Background="White"
+                    BorderBrush="#DDD" BorderThickness="1"
+                    CornerRadius="4"
+                    Padding="10,8"
+                    Margin="0,10,0,0">
+                <StackPanel>
+                    <TextBlock Text="Klacht:"
+                               FontSize="12" FontWeight="SemiBold"
+                               Foreground="#555" Margin="0,0,0,4"/>
+                    <TextBlock x:Name="TxtKlacht"
+                               FontSize="13" Foreground="#2C3E50"
+                               TextWrapping="Wrap"
+                               MinHeight="36"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Knop Annuleren -->
+            <Button x:Name="BtnAnnuleren"
+                    Grid.Row="3"
+                    Content="Afspraak annuleren"
+                    IsEnabled="False"
+                    Click="BtnAnnuleren_Click"
+                    Width="180" Height="36"
+                    HorizontalAlignment="Left"
+                    Margin="0,12,0,0"
+                    Background="#C0392B" Foreground="White"
+                    FontSize="13" FontWeight="SemiBold"
+                    BorderThickness="0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                            CornerRadius="5">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.4"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!-- Bevestigingspaneel (standaard verborgen) -->
+            <Border x:Name="PanelBevestiging"
+                    Grid.Row="4"
+                    Background="#FFF3CD"
+                    BorderBrush="#F0AD4E" BorderThickness="1"
+                    CornerRadius="4" Padding="12,10"
+                    Margin="0,10,0,0"
+                    Visibility="Collapsed">
+                <StackPanel>
+                    <TextBlock x:Name="TxtBevestiging"
+                               Text="Weet u zeker dat u deze afspraak wilt annuleren?"
+                               FontSize="13" Foreground="#856404"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="BtnJa"
+                                Content="Ja, annuleren"
+                                Click="BtnJa_Click"
+                                Width="120" Height="32"
+                                Background="#C0392B" Foreground="White"
+                                FontSize="12" FontWeight="SemiBold"
+                                BorderThickness="0" Margin="0,0,8,0">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        CornerRadius="4">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="BtnNee"
+                                Content="Nee"
+                                Click="BtnNee_Click"
+                                Width="80" Height="32"
+                                Background="#7F8C8D" Foreground="White"
+                                FontSize="12" FontWeight="SemiBold"
+                                BorderThickness="0">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        CornerRadius="4">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Foutmelding (standaard verborgen) -->
+            <TextBlock x:Name="TxtFout"
+                       Grid.Row="5"
+                       Foreground="#C0392B"
+                       FontSize="12"
+                       TextWrapping="Wrap"
+                       Visibility="Collapsed"
+                       Margin="0,10,0,0"/>
+        </Grid>
     </Grid>
 </Page>

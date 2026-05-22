@@ -1,0 +1,10 @@
+<Page x:Class="WPFDokter.PatientWijzigenPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Patiënt wijzigen">
+    <Grid>
+        <TextBlock Text="Patiënt wijzigen – wordt nog uitgewerkt"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="16" Foreground="Gray"/>
+    </Grid>
+</Page>

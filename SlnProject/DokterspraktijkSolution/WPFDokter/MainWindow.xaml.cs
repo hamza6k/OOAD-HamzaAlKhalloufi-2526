@@ -82,7 +82,7 @@ namespace WPFDokter
         /// </summary>
         private void BtnPatienten_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PatientenPage());
+            MainFrame.Navigate(new PatientenOverzichtPage());
         }
 
         /// <summary>
