@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -69,7 +70,7 @@ namespace DokterspraktijkLib
                                 resultaat.Paswoord = opgeslagenHash;
                                 resultaat.Profielfotodata = reader["profielfotodata"] as byte[];
                                 resultaat.Rizivnummer = reader["rizivnummer"].ToString();
-                                resultaat.IsGeconventioneerd = (bool)reader["isgeconventioneerd"];
+                                resultaat.IsGeconventioneerd = Convert.ToBoolean(reader["isgeconventioneerd"]);
                             }
                         }
                     }
