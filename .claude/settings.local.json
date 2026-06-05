@@ -19,7 +19,11 @@
       "PowerShell(dotnet build \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\DokterspraktijkSolution.slnx\" 2>&1)",
       "PowerShell(cmd /c \"sc query type= all state= all | findstr /i sql\")",
       "PowerShell(dotnet build \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\DokterspraktijkLib\\\\DokterspraktijkLib.csproj\" 2>&1)",
-      "PowerShell(Copy-Item \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\VERSLAG.md\" \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\VERSLAG.md\" -Force)"
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\VERSLAG.md\" \"c:\\\\Users\\\\alkha\\\\OneDrive\\\\Documents\\\\OOAD-HamzaAlKhalloufi-2526\\\\SlnProject\\\\DokterspraktijkSolution\\\\VERSLAG.md\" -Force)",
+      "PowerShell(dotnet new sln -n SlnExamen -o SlnExamen)",
+      "PowerShell(dotnet new wpf -n WpfHelpdesk -o SlnExamen\\\\WpfHelpdesk --framework net10.0)",
+      "PowerShell(dotnet new classlib -n CLHelpdesk -o SlnExamen\\\\CLHelpdesk --framework net10.0)",
+      "PowerShell(dotnet sln SlnExamen\\\\SlnExamen.slnx add SlnExamen\\\\WpfHelpdesk\\\\WpfHelpdesk.csproj SlnExamen\\\\CLHelpdesk\\\\CLHelpdesk.csproj)"
     ]
   }
 }

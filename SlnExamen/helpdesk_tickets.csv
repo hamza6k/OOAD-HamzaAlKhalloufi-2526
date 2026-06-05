@@ -1,0 +1,7 @@
+id;titel;melderVoornaam;melderAchternaam;gebruikersnaam;prioriteit;isAfgesloten;type;extraInfo;datumAangemaakt;datumAfgesloten
+1;Printer werkt niet;Jana;Peeters;jpeeters;Hoog;false;Hardware;Printer lokaal B203;2026-04-20 0915;
+2;Laptop start traag op;Milan;Jacobs;mjacobs;Normaal;false;Hardware;Dell Latitude 5420;2026-04-21 0845;
+3;Teams opent niet;Amir;El Idrissi;aelidrissi;Normaal;false;Software;Microsoft Teams;2026-04-18 1420;
+4;Wachtwoord reset lukt niet;Lotte;Vermeulen;lvermeulen;Hoog;false;Software;Windows login;2026-04-19 0900;
+5;Extern scherm geeft geen beeld;Noor;Janssens;njanssens;Laag;true;Hardware;Monitor secretariaat;2026-04-18 1110;2026-04-21 1130
+6;test;Jana;Peeters;0;Normaal;False;Hardware;windows;2026-06-05 1407;

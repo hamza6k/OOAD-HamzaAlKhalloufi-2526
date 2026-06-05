@@ -1,0 +1,90 @@
+<Window x:Class="WpfHelpdesk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfHelpdesk"
+        mc:Ignorable="d"
+        Title="Helpdesk" Height="650" Width="900">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- LINKERKOLOM -->
+        <Grid Grid.Column="0" Margin="0,0,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- GroupBox Filters -->
+            <GroupBox Grid.Row="0" Header="Filters" Margin="0,0,0,5">
+                <StackPanel Margin="5">
+                    <Label Content="Prioriteit:"/>
+                    <ComboBox x:Name="cmbPrioriteit" Margin="0,0,0,5" SelectionChanged="cmbPrioriteit_SelectionChanged">
+                        <ComboBoxItem>Alle</ComboBoxItem>
+                        <ComboBoxItem>Laag</ComboBoxItem>
+                        <ComboBoxItem>Normaal</ComboBoxItem>
+                        <ComboBoxItem>Hoog</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Melder:"/>
+                    <ComboBox x:Name="cmbMelder" Margin="0,0,0,5" SelectionChanged="cmbMelder_SelectionChanged"/>
+                    <CheckBox x:Name="chkAlleenOpen" Content="Alleen open tickets" Margin="0,5,0,0"
+                              Checked="chkAlleenOpen_Changed" Unchecked="chkAlleenOpen_Changed"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- GroupBox Tickets -->
+            <GroupBox Grid.Row="1" Header="Tickets">
+                <ListBox x:Name="lbxTickets" Margin="5" SelectionChanged="lbxTickets_SelectionChanged"/>
+            </GroupBox>
+        </Grid>
+
+        <!-- RECHTERKOLOM -->
+        <Grid Grid.Column="1" Margin="5,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- GroupBox Details -->
+            <GroupBox Grid.Row="0" Header="Details" Margin="0,0,0,5">
+                <TextBlock x:Name="tbkDetails" Margin="5" TextWrapping="Wrap"/>
+            </GroupBox>
+
+            <!-- GroupBox Nieuw ticket -->
+            <GroupBox Grid.Row="1" Header="Nieuw ticket" Margin="0,0,0,5">
+                <StackPanel Margin="5">
+                    <Label Content="Titel:"/>
+                    <TextBox x:Name="txbTitel" Margin="0,0,0,5" TextChanged="txbTitel_TextChanged"/>
+                    <Label Content="Melder:"/>
+                    <ComboBox x:Name="cmbMelderNieuw" Margin="0,0,0,5"/>
+                    <Label Content="Prioriteit:"/>
+                    <ComboBox x:Name="cmbPrioriteitNieuw" Margin="0,0,0,5">
+                        <ComboBoxItem>Laag</ComboBoxItem>
+                        <ComboBoxItem>Normaal</ComboBoxItem>
+                        <ComboBoxItem>Hoog</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Type:"/>
+                    <ComboBox x:Name="cmbType" Margin="0,0,0,5">
+                        <ComboBoxItem>Hardware</ComboBoxItem>
+                        <ComboBoxItem>Software</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Toestel / Applicatie:"/>
+                    <TextBox x:Name="txbExtraInfo" Margin="0,0,0,5"/>
+                    <Button x:Name="btnToevoegen" Content="Toevoegen" HorizontalAlignment="Left" Padding="10,3"
+                            Click="btnToevoegen_Click"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Ticket afsluiten -->
+            <Button Grid.Row="2" x:Name="btnAfsluiten" Content="Ticket afsluiten"
+                    HorizontalAlignment="Stretch" Padding="10,5"
+                    IsEnabled="False" Click="btnAfsluiten_Click"/>
+        </Grid>
+    </Grid>
+</Window>
