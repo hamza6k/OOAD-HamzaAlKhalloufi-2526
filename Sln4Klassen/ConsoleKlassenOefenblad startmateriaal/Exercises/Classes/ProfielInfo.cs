@@ -1,4 +1,6 @@
-﻿namespace ConsoleKlassenOefenblad.Exercises.Classes
+﻿using System.ComponentModel;
+
+namespace ConsoleKlassenOefenblad.Exercises.Classes
 {
     public class ProfielInfo
     {
@@ -56,3 +58,127 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Werknemer
+{
+    // 1. Voeg properties toe: Id, Naam, Salaris, InDienstSinds
+    public int Id { get; set; }
+    public string Naam { get; set; }
+
+    private decimal _salaris;
+    public decimal Salaris
+    {
+        get { return _salaris; }
+        set
+        {
+            if (value < 0)
+                throw new ArgumentException("Salaris kan niet negatief zijn");
+            _salaris = value;
+        }
+    }
+
+    private DateOnly _inDienstSinds;
+    public DateOnly InDienstSinds
+    {
+        get { return _inDienstSinds; }
+        set
+        {
+            if (value > DateOnly.FromDateTime(DateTime.Now))
+                throw new ArgumentException("Datum Indiensttreding kan niet in de toekomst liggen");
+
+        }
+    }
+
+
+}
+
+
+
+class Nummer
+{
+    public string Titel { get; set; } = "onbekend nummer";
+    private int _duurInSeconden;
+    public int DuurInSeconden
+    {
+        get { return _duurInSeconden; }
+        set
+        {
+            if (value <= 0)
+                throw new ArgumentException("Duur moet groter zijn dan nul");
+            _duurInSeconden = value;
+        }
+    }
+    public string DuurAlsTekst
+    {
+        get
+        {
+            int minuten = DuurInSeconden / 60;
+            int seconden = DuurInSeconden % 60;
+            return $"{minuten} : {seconden:D2}";
+        }
+    }
+
+    public Nummer(int duurInSeconden)
+    {
+        DuurInSeconden = duurInSeconden;
+    }
+
+
+    public Nummer(string titel, int minuten, int seconden) : this(minuten * 60 + seconden)
+    {
+        Titel = titel;
+    }
+
+    public override string ToString()
+    {
+        return $"{Titel} ({DuurAlsTekst})";
+    }
+}
+
+class Album
+{
+    public string Titel { get; set; } = "onbekend album";
+    public int Jaar { get; set; }
+    public List<Nummer> Nummers { get; set; } = new List<Nummer>();
+
+    public Album(string titel, int jaar)
+    {
+        Titel = titel;
+        Jaar = jaar;
+    }
+
+    public bool IsEp
+    {
+        get { return Nummers.Count <= 4; }
+    }
+
+    public void VoegNummerToe(Nummer n)
+    {
+        Nummers.Add(n);
+    }
+
+    public override string ToString()
+    {
+        string type = IsEp ? "EP" : "LP";
+        return $"{Titel} ({Jaar}) | {Nummers.Count} nummer(s) | {type}";
+    }
+}
+
+
+
+
+
+
+

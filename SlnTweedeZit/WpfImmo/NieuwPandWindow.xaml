@@ -1,0 +1,63 @@
+<Window x:Class="WpfImmo.NieuwPandWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Title="Nieuw pand toevoegen" Height="620" Width="440"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="16">
+
+            <TextBlock Text="Type pand:" FontWeight="Bold" Margin="0,0,0,4"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <RadioButton x:Name="HuisRadio" Content="Huis" GroupName="Type" IsChecked="True"
+                             Margin="0,0,16,0" Checked="TypeRadio_Checked"/>
+                <RadioButton x:Name="AppartementRadio" Content="Appartement" GroupName="Type"
+                             Checked="TypeRadio_Checked"/>
+            </StackPanel>
+
+            <TextBlock Text="Adres:"/>
+            <TextBox x:Name="AdresTextBox" Margin="0,2,0,10"/>
+
+            <TextBlock Text="Prijs (€):"/>
+            <TextBox x:Name="PrijsTextBox" Margin="0,2,0,10"/>
+
+            <TextBlock Text="Oppervlakte (m²):"/>
+            <TextBox x:Name="OppervlakteTextBox" Margin="0,2,0,10"/>
+
+            <TextBlock Text="Bouwjaar:"/>
+            <TextBox x:Name="BouwJaarTextBox" Margin="0,2,0,10"/>
+
+            <TextBlock Text="Energielabel:"/>
+            <ComboBox x:Name="EnergielabelCombo" Margin="0,2,0,10"/>
+
+            <TextBlock Text="Makelaar:"/>
+            <ComboBox x:Name="MakelaarCombo" Margin="0,2,0,10"/>
+
+            <!-- Enkel zichtbaar bij een Huis -->
+            <StackPanel x:Name="TuinPanel">
+                <TextBlock Text="Tuinoppervlakte (m²):"/>
+                <TextBox x:Name="TuinTextBox" Margin="0,2,0,10"/>
+            </StackPanel>
+
+            <!-- Enkel zichtbaar bij een Appartement -->
+            <StackPanel x:Name="LiftPanel" Visibility="Collapsed">
+                <CheckBox x:Name="LiftCheckBox" Content="Er is een lift aanwezig" Margin="0,0,0,10"/>
+            </StackPanel>
+
+            <TextBlock Text="Foto (optioneel):"/>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,10">
+                <Button x:Name="FotoKiezenButton" Content="Foto kiezen..." Padding="8,4" Click="FotoKiezenButton_Click"/>
+                <TextBlock x:Name="FotoNaamTekst" Text="(geen foto gekozen)" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#666666"/>
+            </StackPanel>
+
+            <TextBlock x:Name="FoutTekst" Foreground="Red" TextWrapping="Wrap" Margin="0,4,0,10" Visibility="Collapsed"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <Button x:Name="AnnulerenButton" Content="Annuleren" Padding="12,6" Margin="0,0,10,0" Click="AnnulerenButton_Click"/>
+                <Button x:Name="BevestigenButton" Content="Toevoegen" Padding="12,6" Click="BevestigenButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

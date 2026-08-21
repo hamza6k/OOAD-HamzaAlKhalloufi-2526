@@ -39,3 +39,6 @@ internal class Bestelling
         return $"#{BestellingId} — {KlantNaam} | {Producten.Count} product(en) | € {TotaalBedrag:F2} | {Status}";
     }
 }
+
+
+

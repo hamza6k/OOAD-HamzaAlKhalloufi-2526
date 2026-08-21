@@ -1,4 +1,6 @@
-﻿namespace ConsoleKlassenOefenblad.Exercises.Classes;
+﻿using System.ComponentModel.Design;
+
+namespace ConsoleKlassenOefenblad.Exercises.Classes;
 
 internal class Product
 {
@@ -38,3 +40,66 @@ internal class Product
         return $"[{ProductId}] {Naam} - {Beschrijving} | €{Prijs} | Voorraad: {Voorraad}";
     }
 }
+
+
+class Product
+{
+    public string Name { get; set; }
+    public decimal Price
+    {
+        get;
+        set
+        {
+            if (value < 0)
+            {
+                throw new ArgumentException("mag niet negatief zijn");
+            }
+            field = value;
+        }
+    }
+    public int Stock { get; set; }
+}
+
+class Student
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string StudyProgram { get; set; }
+
+    public Student(string name, int age, string studyProgram)
+    {
+        Name = name;
+        Age = age;
+        StudyProgram = studyProgram;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
